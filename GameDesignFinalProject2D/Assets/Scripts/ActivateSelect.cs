@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ActivateSelect : MonoBehaviour
 {
 
+	//Test for GitHub push
 	Text enemySelectText;
 	Text magicSelectText;
     // Start is called before the first frame update
