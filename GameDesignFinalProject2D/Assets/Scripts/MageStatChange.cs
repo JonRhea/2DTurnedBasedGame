@@ -21,5 +21,7 @@ public class MageStatChange : MonoBehaviour
     {
         mageStats.text = "Mage - HP: " + MageScript.getCurrentHP() + "/" 
 		+ MageScript.getMaxHP() + " MP: " + MageScript.getCurrentMP() + "/" + MageScript.getMaxMP();
+		
+		
     }
 }

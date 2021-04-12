@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class onElfire : MonoBehaviour
 {
 	
-	Text enemySelectText;
-	Text magicSelectText;
+	//Text enemySelectText;
+	//Text magicSelectText;
 	
 	void Start()
     {
-        GameObject txt = GameObject.Find("EnemySelectTextElfire");
-		enemySelectText = txt.GetComponent<Text>();
+        //GameObject txt = GameObject.Find("EnemySelectTextElfire");
+		//enemySelectText = txt.GetComponent<Text>();
 		
-		GameObject txt2 = GameObject.Find("MagicSelectText");
-		magicSelectText = txt2.GetComponent<Text>();
+		//GameObject txt2 = GameObject.Find("MagicSelectText");
+		//magicSelectText = txt2.GetComponent<Text>();
 	}	
 	
 	void Update()
@@ -50,7 +50,7 @@ public class onElfire : MonoBehaviour
 		
 		BattleTurn.currentTurn++;
 		
-		enemySelectText.gameObject.SetActive(false);
+		//enemySelectText.gameObject.SetActive(false);
    }//end onElFireButton
    
    public void onElFireButton2(){
@@ -77,6 +77,6 @@ public class onElfire : MonoBehaviour
 		
 		BattleTurn.currentTurn++;
 		
-		enemySelectText.gameObject.SetActive(false);
+		//enemySelectText.gameObject.SetActive(false);
    }//end onElFireButton2
 }

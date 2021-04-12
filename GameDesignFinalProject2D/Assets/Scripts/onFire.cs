@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class onFire : MonoBehaviour
 {
 	
-	Text enemySelectText;
-	Text magicSelectText;
+	//Text enemySelectText;
+	//Text magicSelectText;
 	
 	
 	void Start()
     {
-        GameObject txt = GameObject.Find("EnemySelectTextFire");
-		enemySelectText = txt.GetComponent<Text>();
+        //GameObject txt = GameObject.Find("EnemySelectTextFire");
+		//enemySelectText = txt.GetComponent<Text>();
 		
-		GameObject txt2 = GameObject.Find("MagicSelectText");
-		magicSelectText = txt2.GetComponent<Text>();
+		//GameObject txt2 = GameObject.Find("MagicSelectText");
+		//magicSelectText = txt2.GetComponent<Text>();
 		
     }	
 	
@@ -52,7 +52,7 @@ public class onFire : MonoBehaviour
 		
 		BattleTurn.currentTurn++;
 		
-		enemySelectText.gameObject.SetActive(false);
+		//enemySelectText.gameObject.SetActive(false);
 
    }//end onFireButton
    
@@ -82,7 +82,7 @@ public class onFire : MonoBehaviour
 		
 		
 		
-		enemySelectText.gameObject.SetActive(false);
+		//enemySelectText.gameObject.SetActive(false);
 
    }//end onFireButton2
    
