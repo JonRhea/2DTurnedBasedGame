@@ -23,6 +23,11 @@ public class MageScript : MonoBehaviour
 		
 		currentMP = mp;
 	}
+	
+	public static void setAttackStat(int attack){
+		
+		attackStat = attack;
+	}
 
 	public static int getAttackStat(){
 		

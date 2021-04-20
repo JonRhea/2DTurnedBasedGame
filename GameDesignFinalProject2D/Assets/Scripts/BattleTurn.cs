@@ -27,6 +27,18 @@ public class BattleTurn : MonoBehaviour
     void Update()
     {
 		getTurn();
+		
+		if(AttackBoost.boostAppliedWarrior == true && AttackBoost.statRevertedWarrior == false && currentTurn == AttackBoost.boostEndWarrior){
+			WarriorScript.setAttackStat(10);
+			AttackBoost.statRevertedWarrior = true;
+			print("Stat reverted for Warrior");
+		}//end if
+		
+		if(AttackBoost.boostAppliedMage == true && AttackBoost.statRevertedMage == false && currentTurn == AttackBoost.boostEndMage){
+			MageScript.setAttackStat(5);
+			AttackBoost.statRevertedMage = true;
+			print("Stat reverted for Mage");
+		}//end if
 	
 	}
 	public void getTurn(){
