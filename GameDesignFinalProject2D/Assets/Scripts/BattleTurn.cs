@@ -39,7 +39,15 @@ public class BattleTurn : MonoBehaviour
 			AttackBoost.statRevertedMage = true;
 			print("Stat reverted for Mage");
 		}//end if
-	
+		
+		if(WarriorScript.getCurrentHP() > 100){
+			WarriorScript.setHP(100);
+		}//end if
+		
+		if(MageScript.getCurrentHP() > 80){
+			MageScript.setHP(80);
+		}//end if
+		
 	}
 	public void getTurn(){
 	//if % = 0, then its Warrior turn	
