@@ -5,15 +5,44 @@ using UnityEngine;
 public class onMoreHeal : MonoBehaviour
 {
      public void onMoreHealWarrior(){
+		 if(BattleTurn.playerCurrentMP >= 12){
+			if(BattleTurn.currentTurn % 4 == 0){
+				WarriorScript.setHP(WarriorScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
+				WarriorScript.setMP(WarriorScript.getCurrentMP() - 12);
+			}//end if
+			
+			if(BattleTurn.currentTurn % 4 == 1){
+				WarriorScript.setHP(WarriorScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
+				MageScript.setMP(MageScript.getCurrentMP() - 12);
+			}
 		
-		WarriorScript.setHP(WarriorScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
-		BattleTurn.currentTurn++;
+			BattleTurn.currentTurn++;
+		}
+		else{
+			
+		}
+		
 	}//end onMoreHealWarrior
 	
 	
 	public void onMoreHealMage(){
 		
-		MageScript.setHP(MageScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
-		BattleTurn.currentTurn++;
+		if(BattleTurn.playerCurrentMP >= 12){
+			if(BattleTurn.currentTurn % 4 == 0){
+				MageScript.setHP(MageScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
+				WarriorScript.setMP(WarriorScript.getCurrentMP() - 12);
+			}//end if
+			
+			if(BattleTurn.currentTurn % 4 == 1){
+				MageScript.setHP(MageScript.getCurrentHP() + BattleTurn.playerMagicStat + 20);
+				MageScript.setMP(MageScript.getCurrentMP() - 12);
+			}
+			
+			BattleTurn.currentTurn++;
+		}
+		else{
+			
+		}
+	
 	}//end onMoreHealMage
 }
