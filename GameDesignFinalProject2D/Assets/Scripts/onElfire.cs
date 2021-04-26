@@ -9,6 +9,7 @@ public class onElfire : MonoBehaviour
 	//Text enemySelectText;
 	//Text magicSelectText;
 	bool didAttack = false;
+	public AudioSource errorSound;
 	
 	void Start()
     {
@@ -29,8 +30,8 @@ public class onElfire : MonoBehaviour
 	
     public void onElFireButton(){
 	   
-	   didAttack = false;
-	   if(WarriorScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 0 && didAttack == false){
+	    didAttack = false;
+	    if(WarriorScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
 		    didAttack = true;
 		    int enemyHPcurrent = EnemyScript.getCurrentHP();
 			
@@ -49,9 +50,13 @@ public class onElfire : MonoBehaviour
 			BattleTurn.currentTurn++;
 			
 			//enemySelectText.gameObject.SetActive(false);
-	   }//end if
+	    }//end if
+	    else if(WarriorScript.getCurrentMP() < 8){
+			errorSound.Play();
+			
+		}//end else if
 	   
-	   if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false){
+	    if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && EnemyScript.getCurrentHP() > 0){
 		    didAttack = true;
 		    int enemyHPcurrent = EnemyScript.getCurrentHP();
 			
@@ -70,13 +75,17 @@ public class onElfire : MonoBehaviour
 			BattleTurn.currentTurn++;
 			
 			//enemySelectText.gameObject.SetActive(false);
-	   }//end if
+	    }//end if
+	    else if(MageScript.getCurrentMP() < 8){
+			errorSound.Play();
+			
+		}//end else if
    }//end onElFireButton
    
    public void onElFireButton2(){
 	   
 	    didAttack = false;
-	   if(WarriorScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 0 && didAttack == false){
+	   if(WarriorScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
 			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
@@ -93,10 +102,14 @@ public class onElfire : MonoBehaviour
 			
 			BattleTurn.currentTurn++;
 	   }//end if
+	   else if(WarriorScript.getCurrentMP() < 8){
+			errorSound.Play();
+			
+		}//end else if
 	   
-	   if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false){
+	   if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
 			didAttack = true;
-			int enemy2HPcurrent = EnemyScript.getCurrentHP();
+			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
 			print(enemy2HPcurrent);
@@ -112,5 +125,9 @@ public class onElfire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
+		else if(MageScript.getCurrentMP() < 8){
+			errorSound.Play();
+			
+		}//end else if
    }//end onElFireButton2
 }

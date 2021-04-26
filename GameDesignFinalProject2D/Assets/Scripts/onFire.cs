@@ -9,6 +9,7 @@ public class onFire : MonoBehaviour
 	//Text enemySelectText;
 	//Text magicSelectText;
 	bool didAttack = false;
+	public AudioSource errorSound;
 	
 	
 	void Start()
@@ -32,27 +33,32 @@ public class onFire : MonoBehaviour
     public void onFireButton(){
 		
 	   didAttack = false;
-	   if(WarriorScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 0 && didAttack == false){
-		    didAttack = true;
+		if(WarriorScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && EnemyScript.getCurrentHP() > 0){
+			didAttack = true;
 			int enemyHPcurrent = EnemyScript.getCurrentHP();
-			
+				
 			//prints are for debugging
 			print(enemyHPcurrent);
 			print(BattleTurn.playerMagicStat);
 			print(EnemyScript.getMagicStat());
 			
 			EnemyScript.setHP(enemyHPcurrent - BattleTurn.playerMagicStat + EnemyScript.getMagicStat() - 10);
-			
+				
 			enemyHPcurrent = EnemyScript.getCurrentHP();
 			print(enemyHPcurrent);
 			
 			WarriorScript.setMP(WarriorScript.getCurrentMP() - 4);
 		
 			BattleTurn.currentTurn++;
+				
+		}//end if
+		else {
+			errorSound.Play();
 			
-	    }//end if
+		}//end else if
+	
 		
-		if(MageScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 1 && didAttack == false){
+		if(MageScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && EnemyScript.getCurrentHP() > 0){
 			didAttack = true;
 			int enemyHPcurrent = EnemyScript.getCurrentHP();
 			
@@ -70,13 +76,17 @@ public class onFire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
+		else {
+			errorSound.Play();
+			
+		}//end else if
 		
 
     }//end onFireButton
    
     public void onFireButton2(){
 	   didAttack = false;
-	   if(WarriorScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 0 && didAttack == false){
+	   if(WarriorScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
 			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
@@ -93,10 +103,14 @@ public class onFire : MonoBehaviour
 			
 			BattleTurn.currentTurn++;
 	   }//end if
+	   else {
+			errorSound.Play();
+			
+		}//end else if
 	   
-	   if(MageScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 1 && didAttack == false){
+	   if(MageScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
 			didAttack = true;
-			int enemy2HPcurrent = EnemyScript.getCurrentHP();
+			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
 			print(enemy2HPcurrent);
@@ -112,6 +126,12 @@ public class onFire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
+		else {
+			errorSound.Play();
+			
+		}//end else if
+		
+		
 
    }//end onFireButton2
    

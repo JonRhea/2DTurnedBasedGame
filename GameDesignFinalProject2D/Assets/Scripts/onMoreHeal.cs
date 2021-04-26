@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class onMoreHeal : MonoBehaviour
 {
+	public AudioSource errorSound;
      public void onMoreHealWarrior(){
 		 if(BattleTurn.playerCurrentMP >= 12){
 			if(BattleTurn.currentTurn % 4 == 0){
@@ -18,9 +19,10 @@ public class onMoreHeal : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 		}
-		else{
+		else if(BattleTurn.playerCurrentMP < 12){
+			errorSound.Play();
 			
-		}
+		}//end else if
 		
 	}//end onMoreHealWarrior
 	
@@ -40,9 +42,10 @@ public class onMoreHeal : MonoBehaviour
 			
 			BattleTurn.currentTurn++;
 		}
-		else{
+		else if(BattleTurn.playerCurrentMP < 12){
+			errorSound.Play();
 			
-		}
+		}//end else if
 	
 	}//end onMoreHealMage
 }

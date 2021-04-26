@@ -8,8 +8,8 @@ public class Enemy2Script : MonoBehaviour
 	static int defenseStat = 2;
 	static int speedStat = 2;
 	static int magicStat = 0;
-	static int currentHP = 30;
-	static int maxHP = 30;
+	static int currentHP = 70;
+	static int maxHP = 70;
 	
 	
 	
