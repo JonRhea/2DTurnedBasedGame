@@ -76,7 +76,7 @@ public class BattleTurn : MonoBehaviour
 		}//end if
 		
 		//if % = 2, then its Enemy1 turn
-		if(currentTurn % 4 == 2){
+		if(currentTurn % 4 == 2 && EnemyScript.getCurrentHP() > 0){
 			int randomTarget;
 			randomTarget = Random.Range(1,100);
 			print(randomTarget);
@@ -90,9 +90,12 @@ public class BattleTurn : MonoBehaviour
 			}//end if
 			currentTurn++;
 		}//end if
+		else if(currentTurn % 4 == 2){
+			currentTurn++;		
+		}
 		
 		//if % = 3, then its Enemy2 turn
-		if(currentTurn % 4 == 3){
+		if(currentTurn % 4 == 3 && Enemy2Script.getCurrentHP() > 0){
 			int randomTarget;
 			randomTarget = Random.Range(1,100);
 			print(randomTarget);
@@ -105,6 +108,9 @@ public class BattleTurn : MonoBehaviour
 			}//end if
 			currentTurn++;
 		}//end if
+		else if(currentTurn % 4 == 3){
+			currentTurn++;		
+		}
 	 
     }//end getTurn
 }

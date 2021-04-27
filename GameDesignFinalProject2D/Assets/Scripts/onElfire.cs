@@ -51,9 +51,9 @@ public class onElfire : MonoBehaviour
 			
 			//enemySelectText.gameObject.SetActive(false);
 	    }//end if
-	    else if(WarriorScript.getCurrentMP() < 8){
+	    else if(BattleTurn.currentTurn % 4 == 0 && didAttack == false){
 			errorSound.Play();
-			
+			print("Elfire button warrior");
 		}//end else if
 	   
 	    if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && EnemyScript.getCurrentHP() > 0){
@@ -76,9 +76,9 @@ public class onElfire : MonoBehaviour
 			
 			//enemySelectText.gameObject.SetActive(false);
 	    }//end if
-	    else if(MageScript.getCurrentMP() < 8){
+	    else if(BattleTurn.currentTurn % 4 == 1 && didAttack == false){
 			errorSound.Play();
-			
+			print("Elfire button mage");
 		}//end else if
    }//end onElFireButton
    
@@ -86,6 +86,7 @@ public class onElfire : MonoBehaviour
 	   
 	    didAttack = false;
 	   if(WarriorScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
+		   didAttack = true;
 			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
@@ -102,9 +103,9 @@ public class onElfire : MonoBehaviour
 			
 			BattleTurn.currentTurn++;
 	   }//end if
-	   else if(WarriorScript.getCurrentMP() < 8){
+	   else if(BattleTurn.currentTurn % 4 == 0 && didAttack == false){
 			errorSound.Play();
-			
+			print("Elfire 2 button warrior");
 		}//end else if
 	   
 	   if(MageScript.getCurrentMP() >= 8 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
@@ -125,9 +126,9 @@ public class onElfire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
-		else if(MageScript.getCurrentMP() < 8){
+		else if(BattleTurn.currentTurn % 4 == 1 && didAttack == false){
 			errorSound.Play();
-			
+			print("Elfire 2 button mage");
 		}//end else if
    }//end onElFireButton2
 }

@@ -52,9 +52,9 @@ public class onFire : MonoBehaviour
 			BattleTurn.currentTurn++;
 				
 		}//end if
-		else {
+		else if(BattleTurn.currentTurn % 4 == 0 && didAttack == false){
 			errorSound.Play();
-			
+			print("Fire button warrior");
 		}//end else if
 	
 		
@@ -76,9 +76,9 @@ public class onFire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
-		else {
+		else if(BattleTurn.currentTurn % 4 == 1 && didAttack == false){
 			errorSound.Play();
-			
+			print("Fire button mage");
 		}//end else if
 		
 
@@ -87,6 +87,7 @@ public class onFire : MonoBehaviour
     public void onFireButton2(){
 	   didAttack = false;
 	   if(WarriorScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 0 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
+		   didAttack = true;
 			int enemy2HPcurrent = Enemy2Script.getCurrentHP();
 			
 			//prints are for debugging
@@ -103,9 +104,9 @@ public class onFire : MonoBehaviour
 			
 			BattleTurn.currentTurn++;
 	   }//end if
-	   else {
+	   else if(BattleTurn.currentTurn % 4 == 0 && didAttack == false){
 			errorSound.Play();
-			
+			print("Fire button 2 warrior");
 		}//end else if
 	   
 	   if(MageScript.getCurrentMP() >= 4 && BattleTurn.currentTurn % 4 == 1 && didAttack == false && Enemy2Script.getCurrentHP() > 0){
@@ -126,9 +127,9 @@ public class onFire : MonoBehaviour
 		
 			BattleTurn.currentTurn++;
 	    }//end if
-		else {
+		else if(BattleTurn.currentTurn % 4 == 1 && didAttack == false){
 			errorSound.Play();
-			
+			print("Fire button 2 mage");
 		}//end else if
 		
 		
